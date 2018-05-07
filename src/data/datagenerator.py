@@ -10,7 +10,9 @@ class generateFake():
         self.qualification = ['Bachelors','+2','Masters']
         self.level = ['Entry','Mid','Senior']
         self.companylist = ['Leapfrog','Aayulogic','Deerwalk', 'F1soft']
-        for i in range(2):
+        self.labels = ['Id','Age','Interest','Qualification','Experience','Level','Company']
+        self.data = pd.DataFrame(columns=self.labels, index=None)
+        for i in range(1000):
             row = []
             row.append(self.id)
             row.append(random.randint(20,45))
@@ -28,15 +30,12 @@ class generateFake():
                 self.f_level= self.level[2]
                 row.append(self.f_level)
             self.id += 1
-            company = []
-            company.append(random.choice(self.companylist))
-            company.append(self.f_interest)
             
-            company.append(self.f_level)
-            row.append(company)
-            data.append(row)
-
+            row.append(random.choice(self.companylist))
+            self.data.loc[i]= row
+        return(self.data)
 if __name__ == '__main__':
     fak = generateFake()
-    fak.Fake()
-    
+    df=fak.Fake()
+    df.set_index('Id',inplace=True)
+    #df.to_csv('src/data/data.csv', sep=',')
