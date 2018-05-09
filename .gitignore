@@ -1,3 +1,4 @@
 .vscode
 vir_recommed
 .ipynb_checkpoints
+__pycache__
