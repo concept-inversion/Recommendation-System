@@ -262,52 +262,56 @@ from datetime import datetime
 
 json_data = json.loads(data)
 
-def get_age(dob):
-    this_year = datetime.now().year
-    date_of_bith = datetime.strptime(dob, '%Y-%m-%d').year
-    return this_year - date_of_bith
+class JsonParser:
 
-def JsonParser(json_data):
+    # def __init__(self, *args, **kwargs):
+    #     self.json_data = args[0]
+    
+    def get_age(self, dob):
+        this_year = datetime.now().year
+        date_of_bith = datetime.strptime(dob, '%Y-%m-%d').year
+        return this_year - date_of_bith
 
-    # specific field we are interested in
-    required_list = ['user','user_educations', 'skills', 'specializations', 'experience_months', 'job_level', 'dob']
+    def parse(self, json_data):
 
-    # data according to specific field
-    reduced_data = {str(items):json_data.get(items) for items in required_list}
+        # specific field we are interested in
+        required_list = ['user','user_educations', 'skills', 'specializations', 'experience_months', 'job_level', 'dob']
 
-
-    # reduced dictionary
-    reduced_dict = {
-        'id' : reduced_data.get('user').get('id'),
-        'skills' : reduced_data.get('skills'),
-        'specializations' : reduced_data.get('specializations'),
-        'experience' : round(reduced_data.get('experience_months')/12),
-        'educations' : reduced_data.get('user_educations')[0].get('program').get('name').lower(),
-        'level' : reduced_data.get('job_level'),
-        'dob' : reduced_data.get('dob'),
-    }
-
-    # final content of user
-    education = reduced_dict.get('educations').lower()
-    skills_list = list(map(lambda x:x.lower(), reduced_dict.get('skills')))
-    specilization_list = list(map(lambda x:x.lower(), reduced_dict.get('specializations')))
-    level = reduced_dict.get('level')
-    age = get_age(reduced_dict.get('dob'))
+        # data according to specific field
+        reduced_data = {str(items):json_data.get(items) for items in required_list}
 
 
+        # reduced dictionary
+        reduced_dict = {
+            'id' : reduced_data.get('user').get('id'),
+            'skills' : reduced_data.get('skills'),
+            'specializations' : reduced_data.get('specializations'),
+            'experience' : round(reduced_data.get('experience_months')/12),
+            'educations' : reduced_data.get('user_educations')[0].get('program').get('name').lower(),
+            'level' : reduced_data.get('job_level'),
+            'dob' : reduced_data.get('dob'),
+        }
 
-    return {
-    'experience': reduced_dict.get('experience'),
-    'php': (1 if 'php' in skills_list else 0) * (2 if 'php' in specilization_list else 1),
-    'python': (1 if 'python' in skills_list else 0) * (2 if 'python' in specilization_list else 1),
-    'qa': (1 if 'qa' in skills_list else 0) * (2 if 'qa' in specilization_list else 1),
-    'js': (1 if 'js' in skills_list else 0) * (2 if 'js' in specilization_list else 1),
-    'level' : 3 if level=='Top Level' else 2 if level=='Mid Level' else 1,
-    'qualification': 3 if 'master' in education else 2 if 'bachelor' in education else 1,
-    'age' : age
-}
+        # final content of user
+        education = reduced_dict.get('educations').lower()
+        skills_list = list(map(lambda x:x.lower(), reduced_dict.get('skills')))
+        specilization_list = list(map(lambda x:x.lower(), reduced_dict.get('specializations')))
+        level = reduced_dict.get('level')
+        age = self.get_age(reduced_dict.get('dob'))
 
-# user id is also needed to be mapped
+        # return quantized user data in dictionary form
+        return {
+        'experience': reduced_dict.get('experience'),
+        'php': (1 if 'php' in skills_list else 0) * (2 if 'php' in specilization_list else 1),
+        'python': (1 if 'python' in skills_list else 0) * (2 if 'python' in specilization_list else 1),
+        'qa': (1 if 'qa' in skills_list else 0) * (2 if 'qa' in specilization_list else 1),
+        'js': (1 if 'js' in skills_list else 0) * (2 if 'js' in specilization_list else 1),
+        'level' : 3 if level=='Top Level' else 2 if level=='Mid Level' else 1,
+        'qualification': 3 if 'master' in education else 2 if 'bachelor' in education else 1,
+        'age' : age
+        }
+        
 
-a = JsonParser(json_data)
-print(a)
+a = JsonParser()
+b = a.parse(json_data)
+print(b)
