@@ -1,0 +1,38 @@
+{  
+    "id":6,
+    "name":"Shrawan Poudel",
+    "display_picture":"/media/default_pp/jobseeker/male.png",
+    "gender":"Male",
+    "current_address":{  
+       "address":"Kathmandu, Nepal",
+       "street":"Kathmandu, Nepal",
+       "city":"Kathmandu",
+       "country":"Nepal",
+       "latitude":27.7172453,
+       "longitude":85.3239605
+    },
+    "user":10,
+    "dob":"1995-07-12",
+    "nationality":"Nepali",
+    "marital_status":"Unmarried",
+    "is_disabled":false,
+    "disabilities":[  
+ 
+    ],
+    "religion":"Hinduism",
+    "permanent_address":{  
+       "address":"Kathmandu, Nepal",
+       "street":"Kathmandu, Nepal",
+       "city":"Kathmandu",
+       "country":"Nepal",
+       "latitude":27.7172453,
+       "longitude":85.3239605
+    },
+    "phone_numbers":[  
+       {  
+          "id":6,
+          "number":"9843066865",
+          "number_type":"Mobile"
+       }
+    ]
+ }
