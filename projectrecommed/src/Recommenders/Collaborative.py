@@ -7,24 +7,29 @@ from Algorithms.Cosine import CosineSimilarity
 class CollaborativeRec():
     def __init__(self, *args, **kwargs):
         self.userdata = args[0]
-       # Information of jobs : key = jobId
-        self.job = args[1]
-        self.test = args[2]
-        
+        # Information of jobs : key = jobId
+        self.jobdata= args[1]
+        self.test= args[2]
+        self.preProcess()
+
     def preProcess(self):
+            #jobMapper must be a (userId,jobId)
+            self.jobMapper= self.userdata['Jobid']
+            self.userdata.drop('Jobid',axis= 1, inplace= True)
+            self.test.drop('Jobid',axis= 1, inplace= True)
             self.getRecord()
-            #jobMapper must be a touple of (userId,jobId)
-            self.jobMapper = []
-            pass 
 
     def getRecord(self):  
-        self.similar = []  
-        self.similar = CosineSimilarity(self.userdata,self.test)
-        jobList = []
+        self.similar= []  
+        self.cos= CosineSimilarity(self.userdata,self.test)
+        self.similar = self.cos.calculate_cosine()
+        jobList= []
         for each in self.similar:
             #find the job Id from user Id
-            jobId = self.jobMapper[each[0]]
+            jobId= self.jobMapper[each[0]]
             #find job in self.job
-            jobList.append((self.job[jobId],each[1]))
+            #jobList.append((self.jobdata[jobId])
             #put job, value in json
-            pass
+            print(jobId)
+                   
+        print('finished')
