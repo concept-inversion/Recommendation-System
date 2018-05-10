@@ -1,2 +1,10 @@
-fake2db-0.5.4
-faker 0.7.11
+Django==2.0.5
+numpy==1.14.3
+pandas==0.22.0
+pkg-resources==0.0.0
+python-dateutil==2.7.2
+pytz==2018.4
+scikit-learn==0.19.1
+scipy==1.1.0
+six==1.11.0
+sklearn==0.0
