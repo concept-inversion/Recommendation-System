@@ -1,8 +1,8 @@
-#from Algorithms.Cosine import CosineSimilarity
-#from src.Algorithms.Cosine import CosineSimilarity
-#from Algorithms import Cosine
-#from Cosine import CosineSimilarity
-from src import CosineSimilarity
+
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+from Algorithms.Cosine import CosineSimilarity
 
 class CollaborativeRec():
     def __init__(self, *args, **kwargs):
