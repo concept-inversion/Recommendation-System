@@ -1,4 +1,8 @@
-from src.Algorithms.Cosine import CosineSimilarity
+#from Algorithms.Cosine import CosineSimilarity
+#from src.Algorithms.Cosine import CosineSimilarity
+#from Algorithms import Cosine
+#from Cosine import CosineSimilarity
+from src import CosineSimilarity
 
 class CollaborativeRec():
     def __init__(self, *args, **kwargs):
