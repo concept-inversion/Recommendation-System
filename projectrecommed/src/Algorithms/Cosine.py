@@ -1,6 +1,5 @@
 import pandas as pd
 from sklearn.metrics import pairwise_distances
-import ipdb
 class CosineSimilarity():
     def __init__(self,*args, **kwargs):
         self.test = args[0]
