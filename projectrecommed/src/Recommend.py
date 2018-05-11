@@ -21,7 +21,6 @@ class Recommend():
         self.jobdata = pd.read_csv('projectrecommed/src/data/finalJob.csv')
         self.jobdata.set_index('Jobid',inplace = True)
         self.test= self.userdata.iloc[[1]]
-        print(self.userdata.head())
 
 if __name__ == '__main__':
     print(os.getcwd())
