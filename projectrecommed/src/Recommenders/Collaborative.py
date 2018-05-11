@@ -30,10 +30,10 @@ class CollaborativeRec():
             #find job in self.job
             job = self.jobdata.loc[jobId]
             #put job, value in dict
-            jobjson = {'jobdata':job.to_dict(),'similarity':each[1]}
-            import ipdb
-            ipdb.set_trace()
-            
+            jobdict= job.to_dict()
+            jobdict['Jobid']= jobId
+            jobjson = {'jobdata':jobdict,'similarity':each[1]}
+            return jobjson
             
                    
         print('finished')
