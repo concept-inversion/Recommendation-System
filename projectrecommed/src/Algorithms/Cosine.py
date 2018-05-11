@@ -21,10 +21,6 @@ class CosineSimilarity():
         for (index,value) in result.iteritems():
             rec_index.append(((index[1]+1),value))
         return rec_index
-    
-if __name__ == '__main__':
-    pass
-    
 
     
 
