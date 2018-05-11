@@ -5,7 +5,7 @@ from Recommenders.Collaborative import CollaborativeRec
 
 class Recommend():
     def __init__(self, *args, **kwargs):
-        self.userId= args[0]
+        self.test= args[0]
         self.csvReader()
         self.collab= CollaborativeRec(self.userdata,self.jobdata, self.test,self.userId)
 
@@ -21,8 +21,7 @@ class Recommend():
         self.userdata.set_index('UserId',inplace = True)
         self.jobdata = pd.read_csv('data/finalJob.csv')
         self.jobdata.set_index('Jobid',inplace = True)
-        self.test= self.userdata.iloc[[1]]
 
 if __name__ == '__main__':
     print(os.getcwd())
-    a = Recommend(23)
+    a = Recommend(test)
