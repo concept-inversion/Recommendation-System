@@ -1,1 +1,53 @@
-Name
+
+<html>
+
+<title>{% block title %}home{% endblock%}</title>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <br>
+    <h1 class="text-center">RAME RECOMMENDATION SYSTEM</h1><br>
+    <div class="container">
+        <form action="{% url 'recommed' %}" method="GET" >
+            <h3><label>Skills</label></h3>
+            <label for="php">Php</label>
+            <input type="radio" name="php" value="1"><br>
+            <label for="python">Python</label>
+            <input type="radio" name="python" value="1"><br>
+            <label for="js">Javascript</label>
+            <input type="radio" name="js" value="1"><br>
+            <label for="qa">QA</label>
+            <input type="radio" name="qa" value="1"><br>
+            <br>
+            <h3><label>Qualification</label></h3>
+            <select name="qualification">
+                <option value="1">+2</option>
+                <option value="2">Bachelor</option>
+                <option value="3">Master</option>
+            </select>
+            <br>
+            <h3><label>Years Of Experience On Related Field</label></h3>
+                <input type="text" class="form-control" placeholder="Search" name="experience">
+            <br>
+
+            <h3><label>Level</label></h3>
+            <select name="level">
+                    <option value="1">Entry Level</option>
+                    <option value="2">Mid Level</option>
+                    <option value="3">Top Level</option>
+            </select>
+            <br>
+            <h3><label>Age</label></h3>
+            <input type="text" class="form-control" placeholder="Search" name="age">
+            <br>
+            <div class="input-group-btn">
+                <button class="btn btn-lg btn-success" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
