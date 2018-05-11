@@ -28,8 +28,12 @@ class CollaborativeRec():
             #find the job Id from user Id
             jobId= self.jobMapper[each[0]]
             #find job in self.job
-            #jobList.append((self.jobdata[jobId])
-            #put job, value in json
-            print(jobId)
+            job = self.jobdata.loc[jobId]
+            #put job, value in dict
+            jobjson = {'jobdata':job.to_dict(),'similarity':each[1]}
+            import ipdb
+            ipdb.set_trace()
+            
+            
                    
         print('finished')
