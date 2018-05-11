@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import recommend
+from .views import RecommendView, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recommed/', recommend, name='recommed')
+    path('home/', home, name='home'),
+    path('recommed/', RecommendView.as_view(), name='recommed')
 ]
