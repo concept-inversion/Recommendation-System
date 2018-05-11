@@ -16,9 +16,9 @@ class Recommend():
         pass
 
     def csvReader(self):
-        self.userdata = pd.read_csv('projectrecommed/src/data/finalUser.csv')
+        self.userdata = pd.read_csv('data/finalUser.csv')
         self.userdata.set_index('UserId',inplace = True)
-        self.jobdata = pd.read_csv('projectrecommed/src/data/finalJob.csv')
+        self.jobdata = pd.read_csv('data/finalJob.csv')
         self.jobdata.set_index('Jobid',inplace = True)
         self.test= self.userdata.iloc[[1]]
 
