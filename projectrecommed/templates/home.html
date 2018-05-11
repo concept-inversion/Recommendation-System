@@ -10,7 +10,7 @@
 
 <body>
     <br>
-    <h1 class="text-center">RAME RECOMMENDATION SYSTEM</h1><br>
+    <strong><h1 class="text-center">RAMEY RECOMMENDATION SYSTEM</h1></strong>
     <div class="container">
         <form action="{% url 'recommed' %}" method="GET" >
             <h3><label>Skills</label></h3>
@@ -25,6 +25,7 @@
             <br>
             <h3><label>Qualification</label></h3>
             <select name="qualification">
+                <option selected disabled>*** Job Qualification ***</option>
                 <option value="1">+2</option>
                 <option value="2">Bachelor</option>
                 <option value="3">Master</option>
@@ -35,10 +36,11 @@
             <br>
 
             <h3><label>Level</label></h3>
-            <select name="level">
-                    <option value="1">Entry Level</option>
-                    <option value="2">Mid Level</option>
-                    <option value="3">Top Level</option>
+            <select name="level">                                              
+                <option selected disabled>*** Job Level ***</option>
+                <option value="1">Entry Level</option>
+                <option value="2">Mid Level</option>
+                <option value="3">Top Level</option>                                                                                                                
             </select>
             <br>
             <h3><label>Age</label></h3>
