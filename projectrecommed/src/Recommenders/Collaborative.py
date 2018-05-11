@@ -1,7 +1,6 @@
-
-import sys
 import os
 import json
+import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 from Algorithms.Cosine import CosineSimilarity
 
@@ -17,11 +16,14 @@ class CollaborativeRec():
             #jobMapper must be a (userId,jobId)
             self.jobMapper= self.userdata['Jobid']
             self.userdata.drop('Jobid',axis= 1, inplace= True)
-            self.test.drop('Jobid',axis= 1, inplace= True)
-            self.getRecord()
+            order =['experience','php','python','qa','js','level','qualification','age']
+            self.test = self.test[order]
+            # If Job is present
+            #self.test.drop('Jobid',axis= 1, inplace= True)
+            
 
     def getRecord(self):  
-        self.similar= []  
+        self.similar= []
         self.cos= CosineSimilarity(self.userdata,self.test)
         self.similar = self.cos.calculate_cosine()
         jobList= []
@@ -36,6 +38,6 @@ class CollaborativeRec():
             jobdict['Jobid']= jobId
             jobjsontemp = {'jobdata':jobdict,'similarity':each[1]}
             jobList.append(jobjsontemp)
-        print(jobList)
+        return jobList
             
                    
