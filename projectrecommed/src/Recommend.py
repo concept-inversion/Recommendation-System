@@ -16,6 +16,7 @@ class Recommend():
         pass
 
     def csvReader(self):
+        #Define relative path for csv files
         self.userdata = pd.read_csv('data/finalUser.csv')
         self.userdata.set_index('UserId',inplace = True)
         self.jobdata = pd.read_csv('data/finalJob.csv')
