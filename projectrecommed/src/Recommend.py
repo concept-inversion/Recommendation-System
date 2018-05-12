@@ -30,3 +30,8 @@ class Recommend():
         self.jobdata = pd.read_csv('src/data/finalJob.csv')
         self.jobdata.set_index('Jobid',inplace = True)
 
+if __name__== '__main__':
+    testdata = {'php': 1, 'python': 1, 'qualification': 2, 'xperience': 5,'level': 2, 'age': 25}
+    frame = pd.DataFrame.from_dict([testdata])
+    a= Recommend(testdata)
+    print(a)
