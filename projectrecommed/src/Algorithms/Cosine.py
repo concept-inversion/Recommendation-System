@@ -2,8 +2,8 @@ import pandas as pd
 from sklearn.metrics import pairwise_distances
 class CosineSimilarity():
     def __init__(self,*args, **kwargs):
-        self.test = args[0]
-        self.train = args[1] 
+        self.test = args[1]
+        self.train = args[0] 
         
         
     
@@ -19,7 +19,7 @@ class CosineSimilarity():
         result= result.iloc[0:7:1]
         rec_index= []
         for (index,value) in result.iteritems():
-            rec_index.append(((index[1]+1),value))
+            rec_index.append(((index[0]+1),value))
         return rec_index
 
     
