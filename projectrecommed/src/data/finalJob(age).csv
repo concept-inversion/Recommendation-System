@@ -1,0 +1,31 @@
+Jobid,Experience,php,python,qa,js,level,qualification,age,company,jobtitle
+1,0,0,1,0,1,1,1,4,Aayulogic,Python trainee
+2,1,1,0,0,1,2,2,3,Leapfrog,Jr. Web developer
+3,0,0,0,0,1,1,1,3,Leapfrog,Web developer trainee
+4,4,1,0,0,1,3,3,4,Aayulogic,Sr. Web developer
+5,2,0,1,0,0,2,2,4,Deerwalk,Jr. Python developer
+6,3,0,1,0,1,3,3,5,Aayulogic,Sr. Python developer
+7,5,0,0,1,0,3,3,3,Aayulogic,Sr. QA
+8,5,0,0,1,0,3,3,5,Leapfrog,Sr. QA
+9,1,0,0,1,0,2,2,2,Leapfrog,Jr. QA
+10,2,0,1,0,0,2,2,2,Awecode,Jr. Python developer
+11,2,0,0,0,1,2,2,2,Deerwalk,Jr. Web developer
+12,5,1,0,1,1,3,3,3,Deerwalk,Web Project Manager
+13,2,0,0,1,0,2,2,1,Aayulogic,Jr. QA
+14,4,1,1,0,1,3,3,1,Leapfrog,Sr. Python developer
+15,1,1,0,0,1,2,2,1,GrowByData,Jr. Web developer
+16,0,0,1,0,0,1,1,5,Deerwalk,Python trainee
+17,2,1,0,0,1,2,2,4,Young Innovation,Jr. Web developer
+18,1,1,0,0,1,2,2,1,Verscend,Jr. Web developer
+19,4,1,1,0,1,3,3,5,Young Innovation,Web Project Manager
+20,3,0,0,0,1,3,3,5,Verscend,Jr. Web developer
+21,3,1,0,0,1,3,3,5,Verscend,Sr. Web developer
+22,3,0,0,1,0,3,3,4,Logpoint,Sr. QA
+23,0,0,0,0,1,1,1,4,Yomari,Web developer trainee
+24,3,1,0,0,1,3,3,3,Leapfrog,Sr. Web developer
+25,1,1,0,0,0,2,2,2,Javra,Web developer trainee
+26,2,1,0,0,1,2,2,1,Aayulogic,Jr. Web developer
+27,3,0,1,0,1,3,3,3,Logpoint,Sr. Python developer
+28,4,0,0,1,0,3,3,6,Young Innovation,Sr. QA
+29,3,1,0,0,1,3,3,3,Logpoint,Sr. Web developer
+30,0,0,1,0,0,2,2,2,Awecode,Python trainee
