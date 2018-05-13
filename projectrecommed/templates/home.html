@@ -4,14 +4,23 @@
 <title>{% block title %}home{% endblock%}</title>
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <br>
+{% block body %}
+    <!-- <br>
     <strong><h1 class="text-center">RAMEY RECOMMENDATION SYSTEM</h1></strong>
-    <div class="container">
+    <div class="container" align="text-center">
         <form action="{% url 'recommed' %}" method="GET" >
             <h3><label>Skills</label></h3>
             <label for="php">Php</label>
@@ -50,6 +59,99 @@
                 <button class="btn btn-lg btn-success" type="submit">Submit</button>
             </div>
         </form>
-    </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-md-7 col-lg-5">
+      
+            <form class="form-vertical" role="form" action="{% url 'recommed' %}" method="GET">
+            <br>
+              <fieldset>
+                <legend><strong><h3 class="text-center">RAMEY RECOMMENDATION SYSTEM</h3></strong></legend>
+                <br>
+                <div class="form-group">
+                    <label for="job" class="control-label">Skills</label>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="php" value="1"/>
+                        <span>PHP</span>
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="python" value="1" />
+                        <span>Python</span>
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="qa" value="1" />
+                        <span>Quality Assurance</span>
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="js" value="1" />
+                        <span>Javascript</span>
+                      </label>
+                    </div>
+                  </div><br>
+      
+                <div class="form-group">
+                  <label for="input-text" class="control-label">Years Of Experience On Related Field</label>
+                  <input type="text" class="form-control" id="input-text" placeholder="1" name="experience">
+                </div>
+                <div class="form-group">
+                  <label for="input-date" class="control-label">Age</label>
+                  <input type="text" class="form-control" id="input-date" placeholder="28" name="age">
+                </div><br>
+                <div class="form-group">
+                  <label for="input-select" class="control-label">Qualification</label>
+                <select name="qualification" class="form-control">
+                    <option selected disabled>*** Job Qualification ***</option>
+                    <option value="1">+2</option>
+                    <option value="2">Bachelor</option>
+                    <option value="3">Master</option>
+                </select>
+                </div><br>
+                <div class="form-group">
+                    <label for="input-select" class="control-label">Level</label>
+                  <select name="level" class="form-control">
+                      <option selected disabled>*** Job Level ***</option>
+                      <option value="1">Entry Level</option>
+                      <option value="2">Mid Level</option>
+                      <option value="3">Top Level</option>      
+                  </select>
+                  </div><br>
+      
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Submit Data</button>
+                </div>
+              </fieldset>      
+            </form>
+          </div>
+        </div>
+      </div>
+{% endblock %}
 </body>
+
+
+
+<style>
+    
+</style>
+
+<script>
+
+</script>
 </html>
