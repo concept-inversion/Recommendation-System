@@ -4,14 +4,13 @@ import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 from src.Recommenders.Collaborative import CollaborativeRec
-#from Recommenders.Collaborative import CollaborativeRec
-
+from src.Recommenders.Content import ContentRec
 class Recommend():
     def __init__(self, *args, **kwargs):
         self.test= args[0]
         self.csvReader()
-        self.collab= CollaborativeRec(self.userdata,self.jobdata, self.test)
-        
+        self.collab= CollaborativeRec(self.userdata,self.jobdata, self.test) 
+        #self.content= ContentRec(self.jobdata,self.test)
     def readData(self,id):
         #Read test,user,job json data or csv data
         #call collab
