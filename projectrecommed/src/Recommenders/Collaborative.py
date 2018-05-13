@@ -17,10 +17,10 @@ class CollaborativeRec():
     
     # function that ineract with Recommend.py
     def getRecord(self):  
-        #joblist1=self.user2user()
+        joblist1=self.user2user()
         joblist2=self.user2company()
-        #joblist = joblist1 + joblist2
-        for each in joblist2:
+        joblist = joblist1 + joblist2
+        for each in joblist:
             print(each)
         #filter the list
         
@@ -48,7 +48,6 @@ class CollaborativeRec():
     #item to item based
     def user2company(self):
         self.similar= []
-        import ipdb; ipdb.set_trace()
         jobdata= self.jobdata.copy()
         testdata=  self.test.copy() 
         self.jobdata_train, self.test_train= self.preProcessor.columnSelector(jobdata,testdata)
