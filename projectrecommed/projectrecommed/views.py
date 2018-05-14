@@ -14,8 +14,8 @@ class RecommendView(TemplateView):
     def get(self, *args, **kwargs):
         user_data_order_dict = self.request.GET
 
-        # change ordered dict to dict
-        user_dict = {k :int(v[0]) for k,v in dict(user_data_order_dict).items()}
+        # change ordered dict to dict and remove field with null value
+        user_dict = {k :int(v[0]) for k,v in dict(user_data_order_dict).items() if v[0]}
 
         # change user dictionay to pandas dataframe
         pd_dataframe = pd.DataFrame.from_dict([user_dict])
