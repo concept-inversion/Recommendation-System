@@ -13,16 +13,15 @@ class CollaborativeRec():
         self.test= args[2]
         #jobMapper must be a (userId,jobId)
         self.jobMapper= self.userdata['Jobid']
-        self.preProcessor = preProcessor()
+        self.preProcessor = preProcessor(self.jobdata)
     
     # function that ineract with Recommend.py
     def getRecord(self):  
         joblist1=self.user2user()
         joblist2=self.user2company()
+        #logic to combine both result
         joblist = joblist1 + joblist2
-        for each in joblist:
-            print(each)
-        #filter the list
+        return self.preProcessor.makeList((joblist))
         
     def user2user(self):
         self.similar= []
@@ -33,19 +32,14 @@ class CollaborativeRec():
         self.similar = self.cos.calculate_cosine()
         #import ipdb; ipdb.set_trace()
         jobList= []
-        jobjson= {}
         for each in self.similar:
             #find the job Id from user Id
             jobId= self.jobMapper[each[0]]
+            Similarity= each[1]
+            jobList.append((jobId,Similarity))
             #find job in self.job
-            job = self.jobdata.loc[jobId]
-            #put job, value in dict
-            jobdict= job.to_dict()
-            jobdict['Jobid']= jobId
-            jobjsontemp = {'jobdata':jobdict,'similarity':each[1]}
-            jobList.append(jobjsontemp)
         return jobList
-            
+
     #item to item based
     def user2company(self):
         self.similar= []
@@ -55,13 +49,5 @@ class CollaborativeRec():
         #get user to company similarity data
         self.cos= CosineSimilarity(self.jobdata_train,self.test_train)
         self.similar = self.cos.calculate_cosine()
-        jobList=[]
-        jobjson={}
-        for each in self.similar:
-            job = self.jobdata.loc[each[0]]
-            jobdict= job.to_dict()
-            jobdict['Jobid']= each[0]
-            jobjsontemp = {'jobdata':jobdict,'similarity':each[1]}
-            jobList.append(jobjsontemp)
-        return jobList
-           
+        return self.similar
+   
