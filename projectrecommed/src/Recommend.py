@@ -11,6 +11,7 @@ class Recommend():
         self.csvReader()
         self.collab= CollaborativeRec(self.userdata,self.jobdata, self.test) 
         #self.content= ContentRec(self.jobdata,self.test)
+    
     def readData(self,id):
         #Read test,user,job json data or csv data
         #call collab
@@ -28,9 +29,3 @@ class Recommend():
         self.userdata.set_index('UserId',inplace = True)
         self.jobdata = pd.read_csv('src/data/finalJob.csv')
         self.jobdata.set_index('Jobid',inplace = True)
-
-if __name__== '__main__':
-    testdata = {'php': 1, 'python': 1, 'qualification': 2, 'xperience': 5,'level': 2, 'age': 25}
-    frame = pd.DataFrame.from_dict([testdata])
-    a= Recommend(testdata)
-    print(a)
