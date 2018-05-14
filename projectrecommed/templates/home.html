@@ -18,58 +18,6 @@
 
 <body>
 {% block body %}
-    <!-- <br>
-    <strong><h1 class="text-center">RAMEY RECOMMENDATION SYSTEM</h1></strong>
-    <div class="container" align="text-center">
-        <form action="{% url 'recommed' %}" method="GET" >
-            <h3><label>Skills</label></h3>
-            <label for="php">Php</label>
-            <input type="radio" name="php" value="1"><br>
-            <label for="python">Python</label>
-            <input type="radio" name="python" value="1"><br>
-            <label for="js">Javascript</label>
-            <input type="radio" name="js" value="1"><br>
-            <label for="qa">QA</label>
-            <input type="radio" name="qa" value="1"><br>
-            <br>
-            <h3><label>Qualification</label></h3>
-            <select name="qualification">
-                <option selected disabled>*** Job Qualification ***</option>
-                <option value="1">+2</option>
-                <option value="2">Bachelor</option>
-                <option value="3">Master</option>
-            </select>
-            <br>
-            <h3><label>Years Of Experience On Related Field</label></h3>
-                <input type="text" class="form-control" placeholder="Search" name="experience">
-            <br>
-
-            <h3><label>Level</label></h3>
-            <select name="level">                                              
-                <option selected disabled>*** Job Level ***</option>
-                <option value="1">Entry Level</option>
-                <option value="2">Mid Level</option>
-                <option value="3">Top Level</option>                                                                                                                
-            </select>
-            <br>
-            <h3><label>Age</label></h3>
-            <input type="text" class="form-control" placeholder="Search" name="age">
-            <br>
-            <div class="input-group-btn">
-                <button class="btn btn-lg btn-success" type="submit">Submit</button>
-            </div>
-        </form>
-    </div> -->
-
-
-
-
-
-
-
-
-
-
     <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-10 col-md-7 col-lg-5">
@@ -109,11 +57,11 @@
       
                 <div class="form-group">
                   <label for="input-text" class="control-label">Years Of Experience On Related Field</label>
-                  <input type="text" class="form-control" id="input-text" placeholder="1" name="experience">
+                  <input type="text" class="form-control" id="input-experience" placeholder="1" name="Experience" required>
                 </div>
                 <div class="form-group">
                   <label for="input-date" class="control-label">Age</label>
-                  <input type="text" class="form-control" id="input-date" placeholder="28" name="age">
+                  <input type="text" class="form-control" id="input-age" placeholder="28" name="age" required>
                 </div><br>
                 <div class="form-group">
                   <label for="input-select" class="control-label">Qualification</label>
@@ -135,7 +83,7 @@
                   </div><br>
       
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary">Submit Data</button>
+                  <button type="submit" class="btn btn-primary" id="btn-submit">Submit Data</button>
                 </div>
               </fieldset>      
             </form>
@@ -148,10 +96,21 @@
 
 
 <style>
-    
+
 </style>
 
 <script>
+      $(document).on('dblclick',':radio',function(){
+    if(this.checked){
+        $(this).prop('checked', false);
+    }
+  });
+
+        $(document).on('click','#btn-submit',function(){
+    if(this.checked){
+        $(this).prop('checked', false);
+    }
+  });
 
 </script>
 </html>
