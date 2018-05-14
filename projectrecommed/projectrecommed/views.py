@@ -14,8 +14,9 @@ class RecommendView(TemplateView):
     def get(self, *args, **kwargs):
         user_data_order_dict = self.request.GET
 
-        # change ordered dict to dict and remove field with null value
-        user_dict = {k :int(v[0]) for k,v in dict(user_data_order_dict).items() if v[0]}
+        user_dict = {
+            k :self.quantify_age(int(v[0])) if k=='age' else int(v[0]) for k,v in dict(user_data_order_dict).items() if v[0]
+        }
 
         # change user dictionay to pandas dataframe
         pd_dataframe = pd.DataFrame.from_dict([user_dict])
@@ -30,3 +31,6 @@ class RecommendView(TemplateView):
         context['similar_jobs'] = data
 
         return render(self.request, self.template_name, context)
+    
+    def quantify_age(self, age):
+        return 1 if age > 40 else 2 if age > 35 else 3 if age > 30 else 4 if age > 25 else 5
