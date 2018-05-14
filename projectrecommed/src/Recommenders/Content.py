@@ -11,7 +11,7 @@ class ContentRec():
         self.jobdata= args[1]
         self.test= args[2]
         #jobMapper must be a (userId,jobId)
-        self.preProcessor = preProcessor()
+        self.preProcessor = preProcessor(self.jobdata)
     
     def company2company(self):
         self.similar= []
