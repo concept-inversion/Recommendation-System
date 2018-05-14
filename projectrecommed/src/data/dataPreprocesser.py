@@ -18,6 +18,8 @@ class preProcessor():
         df= pd.DataFrame(similar)
         df['freq'] = df.groupby(0)[0].transform('count')
         df.drop_duplicates(0)
+        import ipdb;ipdb.set_trace()
+        df.sort_values(1, ascending=False)
         df.values.tolist()
         for each in similar:
             job = self.jobdata.loc[each[0]]
