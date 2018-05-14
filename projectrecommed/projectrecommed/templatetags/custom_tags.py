@@ -1,9 +1,8 @@
 from itertools import chain
 from django import template
+from operator import itemgetter
 
 register = template.Library()
-
-# a = [{'Experience': 0, 'php': 0, 'python': 0, 'qa': 0, 'js': 1, 'level': 1, 'qualification': 1, 'company': 'Yomari', 'jobtitle': 'Web developer trainee', 'Jobid': 23, 'similarity': 0.9727701243282773}, ]
 
 def data_unquantification(ls):
 
@@ -31,12 +30,10 @@ def data_unquantification(ls):
     return list(chain(job_id_title_company, experience, skills, level, qualification, similarity))
 
 
-
-
 @register.inclusion_tag('dict_table.html')
 def order_items(data):
     reorder = [9, 8, 7, 0, 1, 2, 3, 4, 5, 6, 10]
     ls = [list(job_data.values()) for job_data in data]
     ordered_list = [[item[i] for i in reorder] for item in ls]
     final_data = [data_unquantification(item) for item in ordered_list]
-    return {'data': final_data}
+    return {'data': sorted(final_data, key=itemgetter(-1), reverse=True)}
