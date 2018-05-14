@@ -27,12 +27,6 @@ class RecommendView(TemplateView):
         # retrive all data context data
         context = super().get_context_data()
 
-        # context['similar_jobs']
-        return self.render_to_response(context)
-    
+        context['similar_jobs'] = data
 
-
-
-columns = ['Experience', 'php', 'python', 'qa', 'js', 'level', 'qualification', 'age',]
-dictr = {'php': 1, 'python': 1, 'qualification': 2, 'experience': 5,'level': 2, 'age': 25}
-frame = pd.DataFrame.from_dict([dictr])
+        return render(self.request, self.template_name, context)
