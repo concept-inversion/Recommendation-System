@@ -31,6 +31,7 @@ class CollaborativeRec():
         #get user similarity data
         self.cos= CosineSimilarity(self.userdata,self.test)
         self.similar = self.cos.calculate_cosine()
+        #import ipdb; ipdb.set_trace()
         jobList= []
         jobjson= {}
         for each in self.similar:
