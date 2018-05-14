@@ -1,0 +1,27 @@
+<table class="table table-hover table-dark">        
+        <thead>
+          <tr>
+            <th scope="col">JobId</th>
+            <th scope="col">Job Title</th>
+            <th scope="col">Company</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Php</th>
+            <th scope="col">Pyhton</th>
+            <th scope="col">Quality Assurance</th>
+            <th scope="col">Javascript</th>
+            <th scope="col">Level</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Similarity</th>
+          </tr>
+        </thead>
+        {% for job in data %}
+        <tbody>
+            
+          <tr>
+            {% for value in job %}
+                <th scope="row">{{ value }}</th>
+            {% endfor %}
+          </tr>
+        </tbody>
+        {% endfor %}
+</table>
