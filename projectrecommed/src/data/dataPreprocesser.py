@@ -28,17 +28,9 @@ class preProcessor():
         jobList=[]
         df= pd.DataFrame(similar)
         df['freq'] = df.groupby(0)[0].transform('count')
-<<<<<<< HEAD
-        a= df.drop_duplicates(0)
+        a = df.drop_duplicates(0)
         a.sort_values(1, ascending=False)
         a.values.tolist()
-=======
-        df.drop_duplicates(0)
-        ### only shows duplicate donot impact in dataframe
-        df.sort_values(1, ascending=False)
-        ## why to list not impacting aything on dataframe
-        df.values.tolist()
->>>>>>> documentation
         for each in similar:
             job = self.jobdata.loc[each[0]]
             jobdict= job.to_dict()
