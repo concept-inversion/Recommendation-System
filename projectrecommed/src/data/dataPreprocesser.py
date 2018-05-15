@@ -19,7 +19,7 @@ class preProcessor():
         df['freq'] = df.groupby(0)[0].transform('count')
         a= df.drop_duplicates(0)
         a.sort_values(1, ascending=False)
-        df.values.tolist()
+        a.values.tolist()
         for each in similar:
             job = self.jobdata.loc[each[0]]
             jobdict= job.to_dict()
