@@ -32,8 +32,18 @@ def data_unquantification(ls):
 
 @register.inclusion_tag('dict_table.html')
 def order_items(data):
+
+    # reorder values to display
     reorder = [9, 8, 7, 0, 1, 2, 3, 4, 5, 6, 10]
+
+    # get all values from list of dictionaires
     ls = [list(job_data.values()) for job_data in data]
+
+    # order value with respect to reorder list
     ordered_list = [[item[i] for i in reorder] for item in ls]
+
+    # unquantify datas
     final_data = [data_unquantification(item) for item in ordered_list]
+
+    # sort data on basis of similarity which is last item in list 
     return {'data': sorted(final_data, key=itemgetter(-1), reverse=True)}
