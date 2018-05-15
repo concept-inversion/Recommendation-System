@@ -10,17 +10,25 @@ def home(request):
 
 class RecommendView(TemplateView):
     template_name = 'detail.html'
-
+ 
     def get(self, *args, **kwargs):
-        user_data_order_dict = self.request.GET
+        user_data_order_dict = dict(self.request.GET)
+
+        category = user_data_order_dict.pop('category')
 
         user_dict = {
-            k :self.quantify_age(int(v[0])) if k=='age' else int(v[0]) for k,v in dict(user_data_order_dict).items() if v[0]
+            k : 0 if not v[0] else self.quantify_age(int(v[0])) if k=='age' else int(v[0]) for k,v in dict(user_data_order_dict).items()
         }
 
+        skill_set = ['php', 'python', 'qa', 'js']
+
+        skill_dict = {k: user_dict.get(k, 0) for k in skill_set}
+
+        final_dict = {**user_dict, **skill_dict}
+
         # change user dictionay to pandas dataframe
-        pd_dataframe = pd.DataFrame.from_dict([user_dict])
-        
+        pd_dataframe = pd.DataFrame.from_dict([final_dict])
+
         # get job from Recommend
         similar = Recommend(pd_dataframe)
         data= similar.getData()
