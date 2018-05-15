@@ -13,15 +13,15 @@ class CollaborativeRec():
         self.test= args[2]
         #jobMapper must be a (userId,jobId)
         self.jobMapper= self.userdata['Jobid']
-        self.preProcessor = preProcessor(self.jobdata)
+        self.preProcessor = preProcessor(self.jobdata,self.test)
     
     # function that ineract with Recommend.py
     def getRecord(self):  
-        joblist1=self.user2user()
+        #joblist1=self.user2user()
         joblist2=self.user2company()
         #logic to combine both result
-        joblist = joblist1 + joblist2
-        return self.preProcessor.makeList((joblist))
+        #joblist = joblist1 + joblist2
+        return self.preProcessor.makeList((joblist2))
         
     def user2user(self):
         self.similar= []
