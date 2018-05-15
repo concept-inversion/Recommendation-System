@@ -28,45 +28,17 @@
                 <legend><strong><h3 class="text-center">RAMEY RECOMMENDATION SYSTEM</h3></strong></legend>
                 <br>
                 <div class="form-group">
-                    <label for="job" class="control-label">Skills</label>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="php" value="1"/>
-                        <span>PHP</span>
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="python" value="1" />
-                        <span>Python</span>
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="qa" value="1" />
-                        <span>Quality Assurance</span>
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="js" value="1" />
-                        <span>Javascript</span>
-                      </label>
-                    </div>
-                  </div><br>
-      
-                <div class="form-group">
                   <label for="input-text" class="control-label">Years Of Experience On Related Field</label>
-                  <input type="text" class="form-control" id="input-experience" placeholder="1" name="Experience" required>
+                  <input type="number" min="0" max="15" value="0" step="1" name="experience" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="input-date" class="control-label">Age</label>
-                  <input type="text" class="form-control" id="input-age" placeholder="28" name="age" required>
+                  <label class="control-label">Age</label>
+                  <input type="number" name="age" min="15" max="80" step="1" value="20" class="form-control">
                 </div><br>
                 <div class="form-group">
-                  <label for="input-select" class="control-label">Qualification</label>
+                  <label for="input-select" class="control-label">Education Qualification</label>
                 <select name="qualification" class="form-control">
-                    <option selected disabled>*** Job Qualification ***</option>
+                    <option value="0" selected>Donot Specify</option>
                     <option value="1">+2</option>
                     <option value="2">Bachelor</option>
                     <option value="3">Master</option>
@@ -75,13 +47,58 @@
                 <div class="form-group">
                     <label for="input-select" class="control-label">Level</label>
                   <select name="level" class="form-control">
-                      <option selected disabled>*** Job Level ***</option>
+                    <option value="0" selected>Donot Specify</option>
                       <option value="1">Entry Level</option>
                       <option value="2">Mid Level</option>
                       <option value="3">Top Level</option>      
                   </select>
-                  </div><br>
-      
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="input-select" class="control-label">category</label>
+                <select name="category" class="form-control" id="category" >
+                  <option value="it" selected>Information Technology</option>
+                  <option value="management">Management</option>   
+                </select>
+                <br>
+              <div id="skills">
+                <div class="form-group" id="it">
+                  <label for="job" class="control-label">Skills</label>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="php" value="1"/>
+                      <span>PHP</span>
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="python" value="1" />
+                      <span>Python</span>
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="qa" value="1" />
+                      <span>Quality Assurance</span>
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="js" value="1" />
+                      <span>Javascript</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group" id="management">
+                  <label for="job" class="control-label">Skills</label>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="management" value="management"/>
+                      <span>Management</span>
+                    </label>
+                  </div>
+                </div>
+                </div><br>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary" id="btn-submit">Submit Data</button>
                 </div>
@@ -111,6 +128,17 @@
         $(this).prop('checked', false);
     }
   });
+
+$(document).ready(function(){
+
+  $('#management').hide()
+
+  $('#category').change(function(e){
+      $('#it').hide()
+      $('#management').hide()
+      $('#'+ $('#category').val()).show();
+  });
+});
 
 </script>
 </html>
