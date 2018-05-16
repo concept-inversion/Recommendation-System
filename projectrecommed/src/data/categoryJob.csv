@@ -1,0 +1,71 @@
+Jobid,Experience,hr,de,accountant,consultant,level,qualification,company,jobtitle
+1,0,0,1,0,1,1,1,Aayulogic,data entry trainee
+2,1,1,0,0,1,2,2,Leapfrog,Jr. Hr
+3,0,0,0,0,1,1,1,Leapfrog,Hr trainee
+4,4,1,0,0,1,3,3,Aayulogic,Sr. Hr
+5,2,0,1,0,0,2,2,Deerwalk,Jr. Data Entry
+6,3,0,1,0,1,3,3,Aayulogic,Sr. Data Entry
+7,5,0,0,1,0,3,3,Aayulogic,Sr. Accountant
+8,5,0,0,1,0,3,3,Leapfrog,Sr. Accountant
+9,1,0,0,1,0,2,2,Leapfrog,Jr. Accountant
+10,2,0,1,0,0,2,2,Awecode,Jr. Data Entry
+11,2,0,0,0,1,2,2,Deerwalk,Jr. Hr
+12,5,1,0,1,1,3,3,Deerwalk,Sr. hr
+13,2,0,0,1,0,2,2,Aayulogic,Jr. Accountant
+14,4,1,1,0,1,3,3,Leapfrog,Sr. hr
+15,1,1,0,0,1,2,2,GrowByData,Jr. consultant
+16,0,0,1,0,0,1,1,Deerwalk,data entry trainee
+17,2,1,0,0,1,2,2,Young Innovation,Jr. consultant
+18,1,1,0,0,1,2,2,Verscend,Jr. consultant
+19,4,1,1,0,1,3,3,Young Innovation,Sr. hr
+20,3,0,0,0,1,3,3,Verscend,Jr. hr
+21,3,1,0,0,1,3,3,Verscend,Sr. hr
+22,3,0,0,1,0,3,3,Logpoint,Sr. Accountant
+23,0,0,0,0,1,1,1,Yomari,Hr trainee
+24,3,1,0,0,1,3,3,Leapfrog,Sr. Consultant
+25,1,1,0,0,0,2,2,Javra,Consultant trainee
+26,2,1,0,0,1,2,2,Aayulogic,Jr. consultant
+27,3,0,1,0,1,3,3,Logpoint,Sr. Data Entry
+28,4,0,0,1,0,3,3,Young Innovation,Sr. Accountant
+29,3,1,0,0,1,3,3,Logpoint,Sr. hr
+30,0,0,1,0,0,2,2,Awecode,data entry trainee
+31,0,1,0,0,0,1,1,Awecode,Hr trainee
+32,0,1,0,0,0,1,2,Php sansar,Hr trainee
+33,0,1,0,0,0,1,3,It Sansar,Hr trainee
+34,0,1,0,0,1,1,1,Php sansar,Hr trainee
+35,0,1,0,0,1,1,2,It Sansar,Hr trainee
+36,0,1,0,0,1,1,3,Awecode,Hr trainee
+37,1,1,0,0,1,2,1,Php sansar,Jr. hr
+38,1,1,0,0,1,2,2,Awecode,Jr. hr
+39,1,1,0,0,1,2,3,It Sansar,jr. hr
+40,2,1,0,0,1,2,1,Logpoint,jr. hr
+41,2,1,0,0,1,2,2,Young Innovation,jr. hr
+42,3,1,0,0,1,3,3,It Sansar,jr. hr
+43,0,0,1,0,0,1,1,Python Sansar,data entry trainee
+44,0,0,1,0,0,1,2,GrowByData,data entry trainee
+45,0,0,1,0,0,1,3,Brain Digit,data entry trainee
+46,1,0,1,0,0,2,1,Python Sansar,Jr. Data Entry
+47,1,0,1,0,0,2,2,It Sansar,Jr. Data Entry
+48,1,0,1,0,0,2,3,Verscend,Jr. Data Entry
+49,2,0,1,0,1,3,2,Aayulogic,Sr. Data Entry
+50,3,0,1,0,0,3,3,Leapfrog,Sr. Data Entry
+51,0,0,0,1,0,1,1,Quality Sansar,Accountant Trainee
+52,0,0,0,1,0,1,2,Leapfrog,Accountant Trainee
+53,0,0,0,1,0,1,3,Verscend,Accountant Trainee
+54,1,1,0,1,0,2,1,Quality Sansar,Jr. Accountant
+55,1,1,0,1,0,2,2,Leapfrog,Jr. Accountant
+56,1,1,0,1,0,3,2,It Sansar,Jr. Accountant
+57,3,0,0,1,1,3,3,It Sansar,Sr. Accountant
+58,1,1,0,0,1,2,2,Aayulogic,Jr. consultant
+59,0,0,0,0,1,1,1,It Sansar,Consultant trainee
+60,0,0,0,0,1,1,2,Verscend,Jr. consultant
+61,0,0,1,0,0,1,1,Gfive Tech,data entry trainee
+62,0,0,1,0,0,1,2,Zillatech,data entry trainee
+63,0,0,1,0,0,1,3,CG Corporation,data entry trainee
+64,1,0,1,0,0,2,1,Verisk Tech,Jr. Data Entry
+65,1,0,1,0,0,2,2,Janaki Tech,Jr. Data Entry
+66,1,0,1,0,0,2,3,Verisk Tech,Sr. Data Entry
+67,2,0,1,0,1,2,1,Projectronix,Sr. Data Entry
+68,2,0,1,0,1,2,2,SLT Solutions,Sr. Data Entry
+69,2,0,1,0,1,2,3,Janaki Tech,Sr. hr
+70,5,1,1,1,1,3,3,Google,Sr. hr
