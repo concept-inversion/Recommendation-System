@@ -2,7 +2,6 @@
 <html>
 
 <title>{% block title %}home{% endblock%}</title>
-
 <head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -20,6 +19,7 @@
 {% block body %}
     <div class="container">
         <div class="row">
+          <div class="span6">
           <div class="col-xs-12 col-sm-10 col-md-7 col-lg-5">
       
             <form class="form-vertical" role="form" action="{% url 'recommend' %}" method="GET">
@@ -123,11 +123,14 @@
             </form>
           </div>
         </div>
+        <div class="span6">
+            {% load custom_tags  %}      
+            <p id="tag"></p>
+        </div>
+        </div>
       </div>
 {% endblock %}
 </body>
-
-
 
 <style>
 
@@ -151,6 +154,7 @@ $(document).ready(function(){
   $('#management').hide()
 
   $('#category').change(function(e){
+      $(":radio").prop('checked', false)
       $('#it').hide()
       $('#management').hide()
       $('#'+ $('#category').val()).show();
