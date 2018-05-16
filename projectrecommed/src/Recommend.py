@@ -8,7 +8,8 @@ from src.Recommenders.Content import ContentRec
 class Recommend():
     def __init__(self, *args, **kwargs):
         self.test= args[0]
-        self.csvReader()
+        self.category= args[1]
+        self.csvReader(self.category)
         self.collab= CollaborativeRec(self.userdata,self.jobdata, self.test) 
         #self.content= ContentRec(self.jobdata,self.test)
     
@@ -23,9 +24,9 @@ class Recommend():
         return data
 
 
-    def csvReader(self):
+    def csvReader(self,path):
         #Define relative path for csv files
-        self.userdata = pd.read_csv('src/data/finalUser.csv')
+        self.userdata = pd.read_csv(f'src/data/{path}/finalUser.csv')
         self.userdata.set_index('UserId',inplace = True)
-        self.jobdata = pd.read_csv('src/data/finalJob.csv')
+        self.jobdata = pd.read_csv(f'src/data/{path}/finalJob.csv')
         self.jobdata.set_index('Jobid',inplace = True)
