@@ -28,8 +28,11 @@ class preProcessor():
     def makeList(self,similar):
         jobList=[]
         df= pd.DataFrame(similar)
-        df['freq'] = df.groupby(0)[0].transform('count')
+        #frequency count
+        #df['freq'] = df.groupby(0)[0].transform('count')
         data = df.drop_duplicates(0)
+        similar= data.values.tolist()  
+        #import ipdb; ipdb.set_trace()
         for each in similar:
             job = self.jobdata.loc[each[0]]
             similarity= self.similarityCalculator(each[0])
