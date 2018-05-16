@@ -43,12 +43,14 @@ class preProcessor():
         return jobList
 
     def similarityCalculator(self,data):
-        job = self.jobdata.loc[[data]] 
+        job = self.jobdata.loc[[data]]
+        missing = list(set(job)-set(self.test))
+        for each in missing:
+            self.test[each]=0 
         job,user = self.columnSelector(job,self.test)
         #import ipdb; ipdb.set_trace()
         job= job.values.tolist()[0]
         user= user.values.tolist()[0]
-        
         score = 0
         scoreMatrix=[]
         for i in range(len(job)):
