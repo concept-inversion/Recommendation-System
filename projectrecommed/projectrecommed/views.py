@@ -31,10 +31,8 @@ class RecommendView(TemplateView):
         pd_dataframe = pd.DataFrame.from_dict([final_dict])
 
         # get job from Recommend
-        similar = Recommend(pd_dataframe)
+        similar = Recommend(pd_dataframe,category)
         data= similar.getData()
-
-        import ipdb; ipdb.set_trace()
         
         # retrive all data context data
         context = super().get_context_data()
