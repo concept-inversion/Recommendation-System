@@ -55,7 +55,7 @@ class preProcessor():
             #elif user[i]>=job[i]:
                 #score += 0.12
         #import ipdb; ipdb.set_trace()
-        return score
+        return round(score,4)
 
 
     def usertouser(self):
