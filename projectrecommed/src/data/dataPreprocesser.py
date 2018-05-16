@@ -44,11 +44,11 @@ class preProcessor():
 
     def similarityCalculator(self,data):
         job = self.jobdata.loc[[data]]
+        job= job.drop(['company','jobtitle'],axis=1)
         missing = list(set(job)-set(self.test))
         for each in missing:
             self.test[each]=0 
         job,user = self.columnSelector(job,self.test)
-        #import ipdb; ipdb.set_trace()
         job= job.values.tolist()[0]
         user= user.values.tolist()[0]
         score = 0
@@ -57,8 +57,16 @@ class preProcessor():
             if user[i]== job[i]:
                 score += 0.1428
                 scoreMatrix.append(score)
-            #elif user[i]>=job[i]:
-                #score += 0.12
+            
+
+            elif (job[i]-user[i])==1:
+                score-=0.1
+            elif (job[i]-user[i])==2:
+                score-= 0.15
+
+            elif (job[i]-user[i])==3:
+                score-= 0.2
+
         #import ipdb; ipdb.set_trace()
         return round(score,4)
 
