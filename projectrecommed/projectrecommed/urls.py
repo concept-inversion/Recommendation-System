@@ -20,5 +20,5 @@ from .views import RecommendView, home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home, name='home'),
-    path('recommed/', RecommendView.as_view(), name='recommed')
+    path('recommend/', RecommendView.as_view(), name='recommend')
 ]
