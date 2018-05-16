@@ -52,22 +52,19 @@ class preProcessor():
         job= job.values.tolist()[0]
         user= user.values.tolist()[0]
         score = 0
-        scoreMatrix=[]
         for i in range(len(job)):
             if user[i]== job[i]:
                 score += 0.1428
-                scoreMatrix.append(score)
-            
-
             elif (job[i]-user[i])==1:
-                score-=0.1
+                score-=0.05
             elif (job[i]-user[i])==2:
-                score-= 0.15
+                score-= 0.06
 
             elif (job[i]-user[i])==3:
-                score-= 0.2
-
-        #import ipdb; ipdb.set_trace()
+                score-= 0.07
+            
+            elif (job[i]-user[i])> 3:
+                score-= 0.1
         return round(score,4)
 
 
