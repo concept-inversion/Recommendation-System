@@ -12,19 +12,20 @@ class RecommendView(TemplateView):
     template_name = 'detail.html'
  
     def get(self, *args, **kwargs):
+
         user_data_order_dict = dict(self.request.GET)
 
-        category = user_data_order_dict.pop('category')
+        category = user_data_order_dict.pop('category')[0]
 
         user_dict = {
             k : 0 if not v[0] else self.quantify_age(int(v[0])) if k=='age' else int(v[0]) for k,v in dict(user_data_order_dict).items()
         }
+        if not category == 'management':
+            skill_set = ['php', 'python', 'qa', 'js']
 
-        skill_set = ['php', 'python', 'qa', 'js']
+            skill_dict = {k: user_dict.get(k, 0) for k in skill_set}
 
-        skill_dict = {k: user_dict.get(k, 0) for k in skill_set}
-
-        final_dict = {**user_dict, **skill_dict}
+            final_dict = {**user_dict, **skill_dict}
 
         # change user dictionay to pandas dataframe
         pd_dataframe = pd.DataFrame.from_dict([final_dict])
@@ -32,6 +33,8 @@ class RecommendView(TemplateView):
         # get job from Recommend
         similar = Recommend(pd_dataframe)
         data= similar.getData()
+
+        import ipdb; ipdb.set_trace()
         
         # retrive all data context data
         context = super().get_context_data()
