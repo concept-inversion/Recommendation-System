@@ -18,17 +18,18 @@ class RecommendView(TemplateView):
         category = user_data_order_dict.pop('category')[0]
 
         user_dict = {
-            k : 0 if not v[0] else self.quantify_age(int(v[0])) if k=='age' else int(v[0]) for k,v in dict(user_data_order_dict).items()
+            k : 0 if not v[0] else self.quantify_age(int(v[0])) if k=='age' else int(v[0]) for k,v in dict(user_data_order_dict).items() if v[0]
         }
-        if not category == 'management':
-            skill_set = ['php', 'python', 'qa', 'js']
 
-            skill_dict = {k: user_dict.get(k, 0) for k in skill_set}
+        # if not category == 'management':
+        #     skill_set = ['php', 'python', 'qa', 'js']
 
-            final_dict = {**user_dict, **skill_dict}
+        #     skill_dict = {k: user_dict.get(k, 0) for k in skill_set}
+
+        #     final_dict = {**user_dict, **skill_dict}
 
         # change user dictionay to pandas dataframe
-        pd_dataframe = pd.DataFrame.from_dict([final_dict])
+        pd_dataframe = pd.DataFrame.from_dict([user_dict])
 
         # get job from Recommend
         similar = Recommend(pd_dataframe,category)
