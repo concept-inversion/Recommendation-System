@@ -8,11 +8,8 @@ class CosineSimilarity():
         
     
     def calculate_cosine(self):
-        #import ipdb; ipdb.set_trace()
-        print(self.test)
         cosine_sim = 1-pairwise_distances(self.train,self.test, metric="manhattan")
         result= pd.DataFrame(cosine_sim)
-        print(result)
         rec_index= self.filter(result)
         return rec_index
         
