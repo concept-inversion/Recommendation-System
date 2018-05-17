@@ -218,7 +218,7 @@ datas = """
          "available_for":[  
             "Full Time"
          ],
-         "org_alt_description":"",
+         "org_alt_description":"",JSON
          "alternate_description":null,
          "title":"top level",
          "education_description":"None",
@@ -446,32 +446,33 @@ datas = """
 }
 """
 
+# import json
+# original_data = json.loads(datas)
+# res_data = original_data.get('results')
+
+
+# print(f'Length of company data : {len(res_data)} \n')
+
+# from FullcompanyData import a
 import json
-original_data = json.loads(datas)
-res_data = original_data.get('results')
 
-
-print(f'Length of company data : {len(res_data)} \n')
-
-
-
-import json
-
-original_data = json.loads(datas)
-res_data = original_data.get('results')
+# original_data = json.loads(datas)
+# res_data = original_data.get('results')
 
 class JobJsonParser:
 
     def __init__(self, *args, **kwargs):
 
         # initialize required fields
-        required_field_list = ['job_level', 'education_level', 'specification', 'skills', 'client']
+        required_field_list = ['id', 'title', 'categories', 'job_level', 'education_level', 'specification', 'skills', 'client']
         self.skills_list = ['php', 'python', 'js', 'qa']
         self.job_level_list = ['Entry Level', 'Mid Level', 'Senior Level', 'Top Level']
         self.education_level_list = ['+2', 'bachelors', 'masters']
 
         # get all results from json input. result a list
-        initial_data = args[0].get('results')
+        # initial_data = args[0].get('results')
+
+        initial_data = args[0]
 
         # make list of dictinary from all job_data in initial_data on basis of required fields
         self.all_job_dict =[
@@ -484,11 +485,11 @@ class JobJsonParser:
         
         # create dictionary of skill set with value 1 
         # if job_data has skill set item else 0 for each item
-        skill_dict = {
-            skill: 0 if not single_job_dict.get('skills')\
-            else 1 if skill in [temp_skill.lower() for temp_skill in single_job_dict.get('skills')] else 0\
-            for skill in self.skills_list
-        }
+        # skill_dict = {
+        #     skill: 0 if not single_job_dict.get('skills')\
+        #     else 1 if skill in [temp_skill.lower() for temp_skill in single_job_dict.get('skills')] else 0\
+        #     for skill in self.skills_list
+        # }
 
 
         # quantify job level with the help of index in job_level_list 
@@ -523,6 +524,10 @@ class JobJsonParser:
 
         # create temporary dict to store experience , job_level, education_level, client
         temp_dict = {
+            'jobId' :  single_job_dict.get('id'),
+            'skills': single_job_dict.get('skills'),
+            'jobTitle' :  single_job_dict.get('title'),
+            'categories' : single_job_dict.get('categories'),
             'experience' : experience,
             'job_level' : job_level,
             'education_level': education_level,
@@ -530,18 +535,63 @@ class JobJsonParser:
         }
 
         # return final dict after merging temp_dict with skill_dict
-        return{**temp_dict, **skill_dict}
+        # return{**temp_dict, **skill_dict}
+        return temp_dict
 
     def get_job_data(self):
         return [self.parse_json(single_object_dict) for single_object_dict in self.all_job_dict]
 
 
-parser_obj = JobJsonParser(original_data)
-final_job_data = parser_obj.get_job_data()
+def read_json(filepath='FullcompanyData.json'):
+    with open('FullcompanyData.json', 'r') as jsonfile:
+        json_data = jsonfile.read()
+        return json.loads(json_data)
+    
+a = read_json()
+
+parser_obj = JobJsonParser(a)
+job_data = parser_obj.get_job_data()
+
+cat = { d.get('categories')[0] for d in job_data}
+
+cat_list = list(cat)
+
 
 import pandas as pd
 
-df = pd.DataFrame(final_job_data)
+for i in range(len(cat_list)):
+    a = [list(filter(lambda x:x.get('categories')[0] == cat_list[i], job_data))]
+    name = cat_list[i].split(' /')[0]
+    df = pd.DataFrame(a)
+    df.to_csv(f'../newData/{name}.csv')
 
-df.set_index('client', inplace=True)
-print(f'dataframe structure of final job data \n{df}')
+
+""" {'Accounting / Finance', 'Hospitality', 'NGO / INGO / Social work', 'Research and Development', 'Sales / Public Relations', '
+Teaching / Education', 'Creative / Graphics / Designing', 'Human Resource / Org. Development', 'Construction / Engineering /
+Architects', 'Legal Services', 'IT and Telecommunication', 'Administration', 'Banking / Insurance / Financial Services', 'Acc
+ount management', 'Secretarial / Front Office / Data Entry', 'Architecture / Interior Designing', 'Journalism / Editor / Medi
+a', 'Commercial / Logistics / Supply Chain', 'Fashion / Textile Designing', 'Healthcare / Pharma / Biotech / Medical / Resear
+ch and Development', 'Production / Maintenance / Quality', 'Protective / Security Services', 'Others', 'Marketing / Advertisi
+ng / Customer Service', 'General Mgmt. / Administration / Operations'} """
+
+
+
+# df = pd.read_json('FullcompanyData.json')
+# print(df.head())
+# df = pd.DataFrame(final_job_data)
+
+# print(job_data)
+
+usr_dict = {'id': 29, 'title': 'Service Engineer', 'slug': 'service-engineer-2',
+'client': {'slug': 'bmw-nepal', 'client_name': 'BMW Nepal', 'id': 5},
+'categories': ['Secretarial / Front Office / Data Entry'],
+'description': None, 'specification': None,
+'alternate_description': '<p>Manage all the staffs</p><p><br></p>',
+'skills': [], 'available_for': ['Full Time'],
+'job_level': 'Entry Level', 'vacancies': 10,
+'deadline': '2018-06-14T22:35:00Z',
+'job_service': {'name': 'Hot Job', 'service_type': 'Premium Job', 'level': 2},
+'job_source': None, 'np_image': None, 'education_program': [],
+'education_level': None, 'education_description': 'None',
+'offered_salary': {'currency': 'NRs', 'operator': None, 'minimum': 1000.0, 'unit': 'Monthly', 'maximum': 50000.0}, 'job_locations': [{'address': 'Kathmandu, Nepal', 'street': 'Kathmandu, Nepal', 'city': 'Kathmandu', 'country': 'Nepal', 'latitude': 27.7172453, 'longitude': 85.3239605}], 'hide_org_name': False, 'modified_at': '2018-04-26T06:21:10.956458Z', 'posted_at': '2018-04-26T06:21:10.653060Z', 'posted_date': '2018-04-26', 'apply_online': True, 'status': 'Published', 'apply_online_alternative': 'None', 'extra_description': 'None', 'org_alt_description': '', 'absolute_url': '/service-engineer-2/', 'industry': 'Automotive Sales, Support and Service', 'can_apply_from_mobile': False, 'logo': {'url': '/media/default_pp/employer/employer.png', 'image': 'default_pp/employer/employer.png'},
+'banner': None}
