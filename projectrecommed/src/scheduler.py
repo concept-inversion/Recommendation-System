@@ -9,24 +9,24 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 endpoint = 'https://b7f7c9c9-a10f-47fe-8d88-6efdfe76df0e.mock.pstmn.io/test2'
 print(os.getcwd())
 def addtoCsv(data):
-    f = csv.writer(open("projectrecommed/src/data/test.csv", "wb+"))
+    f = csv.writer(open("projectrecommed/src/data/test.csv", "w+"))
     print('loaded')
     
-    #for data in data:
-        #Jobid,Experience,php,python,qa,js,level,qualification,company,jobtitle
+    #Jobid,Experience,php,python,qa,js,level,qualification,company,jobtitle
     #data['Jobid']
-    #f.writerow([
-     #   a
-        #b'data["Experience"],
-        #b'data["php"],
-        #b'data["python"],
-        #data["qa"],
-        #data["js"],
-        #data["level"],
-        #b'data["qualification"]
+    
+    f.writerow([
         
-        
-      #  ])
+        data["Experience"],
+        data["php"],
+        data["python"],
+        data["qa"],
+        data["js"],
+        data["level"],
+        data["qualification"],
+        data["company"],
+        data["jobtitle"]
+         ])
 
 
 def job():
