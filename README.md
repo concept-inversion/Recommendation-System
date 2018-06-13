@@ -9,7 +9,7 @@ This project based on Django web framework and is a webapp.
 2. Content Filtering
 3. Hybrid model
 
-##Similiarity used:
+###Similiarity used:
 
 1. Cosine Similarity
 2. Mahattan Distance
